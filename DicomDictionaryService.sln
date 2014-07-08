@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DicomDictionaryService", "DicomDictionaryService\DicomDictionaryService.csproj", "{1283AC4D-234A-4E3F-8B35-787DE850EF4E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{AFC35DC4-84FB-4348-8DD5-92833E86384D}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\AzureWebsitePublishModule.psm1 = PublishScripts\AzureWebsitePublishModule.psm1
+		PublishScripts\Publish-WebApplicationWebsite.ps1 = PublishScripts\Publish-WebApplicationWebsite.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{4D0E77CA-50FD-465B-8D6F-A19FCA512B08}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Configurations\DicomDictionaryService-WAWS-dev.json = PublishScripts\Configurations\DicomDictionaryService-WAWS-dev.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1283AC4D-234A-4E3F-8B35-787DE850EF4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1283AC4D-234A-4E3F-8B35-787DE850EF4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1283AC4D-234A-4E3F-8B35-787DE850EF4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1283AC4D-234A-4E3F-8B35-787DE850EF4E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4D0E77CA-50FD-465B-8D6F-A19FCA512B08} = {AFC35DC4-84FB-4348-8DD5-92833E86384D}
+	EndGlobalSection
+EndGlobal

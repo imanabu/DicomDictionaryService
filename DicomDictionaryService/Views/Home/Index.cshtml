@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h2>DICOM Dictionary Lookup Service</h2>
+    <p>Enter a Tag or a Part of Dictionary Description</p>
+    <input type="text" id="tag" size="20" />
+    <input type="button" value="Search" onclick="find();" />
+</div>
+<div class="well" id="result"></div>
+<div class="well">
+    <h3>Example Queries:</h3>
+    <p>00100020 -- Great for typing in</p>
+    <p>(0010,0020) -- Great for cutting and pasting from some doc or page.</p>
+    <p>patient id -- description searches are not case sensitive and spaces are ignored too.</p>
+    <p>Note some descriptions may contain an apstrophe (e.g., Patient's name). This lookup ignores the 's</p>
+    <p>
+        See also: There is a pure JavaScript based DICOM Dump.
+        <a href="https://rawgit.com/chafey/dicomParser/master/examples/dumpWithDataDictionary/index.html">Click Here</a> then drag and drop your DICOM File Object!
+    </p>
+</div>
+<div class="well">
+    <h3>Your JavaScript app can access this lookup service's back end with the following URL.</h3>
+    <p>Examples:</p>
+    <p>http://dicomdictionaryservice.azurewebsite.net/lookup/00100010</p>
+    <p>http://dicomdictionaryservice.azurewebsite.net/lookup/PatientName</p>
+</div>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+<script src="/Scripts/find.js"></script>
+
