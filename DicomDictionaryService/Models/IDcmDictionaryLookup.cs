@@ -9,6 +9,7 @@ namespace DicomDictionaryService.Models
     {
         public string tag;
         public string vr;
+        public string vm;
         public string description;
     }
 

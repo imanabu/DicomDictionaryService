@@ -8,7 +8,10 @@ function formatItem(data) {
     tbl = tbl + "Tag";
     tbl = tbl + "</td>";
     tbl = tbl + "<td>";
-    tbl = tbl + "Value Representation";
+    tbl = tbl + "VM";
+    tbl = tbl + "</td>";
+    tbl = tbl + "<td>";
+    tbl = tbl + "<a href='/Home/Vr'>VR</a>";
     tbl = tbl + "</td>";
     tbl = tbl + "<td>";
     tbl = tbl + "Official Description";
@@ -18,11 +21,17 @@ function formatItem(data) {
 
     $.each(data, function (i, obj) {
         tbl = tbl + "<tr>";
+
         tbl = tbl + "<td>";
         tbl = tbl + obj.tag;
         tbl = tbl + "</td>";
+
         tbl = tbl + "<td>";
-        tbl = tbl + "[" + obj.vr + "]";
+        tbl = tbl + obj.vm;
+        tbl = tbl + "</td>";
+
+        tbl = tbl + "<td>";
+        tbl = tbl + "<a href='/Home/Vr' target='_blank'>" + obj.vr + "</a>";
         tbl = tbl + "</td>";
         tbl = tbl + "<td>";
         tbl = tbl + obj.description;

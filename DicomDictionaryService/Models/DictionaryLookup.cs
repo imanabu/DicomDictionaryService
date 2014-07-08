@@ -7,21 +7,12 @@ namespace DicomDictionaryService.Models
 {
     public class DictionaryLookup : IDcmDictionaryLookup
     {
-        private enum Mode
-        {
-            tag,
-            desc
-        };
-
         public List<dictItem> Lookup(String term)
         {
-
             var results = new List<dictItem>();
 
-            var dd = DicomDictionary.Default;
-            var de = dd.GetEnumerator();
-
-            var mode = Mode.tag;
+            DicomDictionary dd = DicomDictionary.Default;
+            IEnumerator<DicomDictionaryEntry> de = dd.GetEnumerator();
 
             term = term.ToLower().Replace(",", "").Replace("(", "").Replace(")", "").Replace(" ", "");
             term = term.Replace("'s", "");
@@ -30,13 +21,13 @@ namespace DicomDictionaryService.Models
 
             var tagFormat1 = new Regex("^[0-9A-Fa-f]{8}$");
 
-            mode = tagFormat1.Match(term).Success ? Mode.tag : Mode.desc;
+            Mode mode = tagFormat1.Match(term).Success ? Mode.tag : Mode.desc;
 
             while (de.MoveNext())
             {
-                var ent = de.Current;
+                DicomDictionaryEntry ent = de.Current;
 
-                var comp = "";
+                string comp = "";
 
                 switch (mode)
                 {
@@ -54,10 +45,18 @@ namespace DicomDictionaryService.Models
 
                 if (comp.Contains(term))
                 {
+                    var vm1 = "1";
+
+                    if (ent.ValueMultiplicity.Maximum == int.MaxValue)
+                        vm1 = String.Format("{0} or more", ent.ValueMultiplicity.Minimum);
+                    else if (ent.ValueMultiplicity.Maximum > 1)
+                        vm1 = String.Format("{0}-{1}", ent.ValueMultiplicity.Minimum, ent.ValueMultiplicity.Maximum);
+
                     results.Add(new dictItem
                     {
                         tag = ent.Tag.ToString().ToUpper(),
                         description = ent.Name,
+                        vm = vm1,
                         vr = ent.ValueRepresentations[0].ToString()
                     });
                 }
@@ -65,5 +64,11 @@ namespace DicomDictionaryService.Models
 
             return results;
         }
+
+        private enum Mode
+        {
+            tag,
+            desc
+        };
     }
 }

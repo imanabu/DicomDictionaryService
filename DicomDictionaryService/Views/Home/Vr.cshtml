@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Vr";
+}
+
+<h2>Value Representations</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <td>VR</td>
+            <td>Max Size (Bytes)</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tr><td>AE</td><td>16 </td><td>Application Name</td></tr>
+    <tr><td>AS</td><td>4</td><td>Age String: nnnW or nnnM or nnnY</td></tr>
+    <tr><td>AT</td><td>4</td><td>Attribute Tag a UInt32</td></tr>
+    <tr><td>CS</td><td>16 </td><td>Code String</td></tr>
+    <tr><td>DA</td><td>8</td><td>Date yyyymmdd (check for yyyy.mm.dd also and convert)</td></tr>
+    <tr><td>DS</td><td>16 </td><td>Decimal <strong>String</strong>.Can start with + or - and may be padded with l or t space</td></tr>
+    <tr><td>DT</td><td>26 </td><td>Date Time YYYYMMDDHHMMSS.FFFFFF&ZZZZ (&ZZZ is optional & = + or -)</td></tr>
+    <tr><td>FL</td><td>4</td><td>Single precision floating point binary number (float)</td></tr>
+    <tr><td>FD</td><td>16 </td><td>Double precision floating point binary number (double)</td></tr>
+    <tr><td>IS</td><td>12 </td><td>Integer encoded <strong>String</strong>. It may be padded</td></tr>
+    <tr><td>LO</td><td>64 </td><td>Character string. can be padded. Cannot contain \ or any control chars except ESC</td></tr>
+    <tr><td>LT</td><td>10240</td><td>Long Text. Leading spaces are significant. trailing spaces arent</td></tr>
+    <tr><td>OB</td><td>Any</td><td>Other bytes (meaning byte blob) with a single trailing 0x00 to make even number of bytes. May contain frame sequences.</td></tr>
+    <tr><td>OF</td><td>Any</td><td>Other Float</td></tr>
+    <tr><td>OW</td><td>Any</td><td>Other Word (meaning 16-bit blob)</td></tr>
+    <tr><td>PN</td><td>Any</td><td>Person's Name 64 byte max per component. 5 components like this: Washington^Georgia^Mary^Jr^III</td></tr>
+    <tr><td>SH</td><td>16 </td><td>Short String. may be padded</td></tr>
+    <tr><td>SL</td><td>4</td><td>Signed long integer (Int32)</td></tr>
+    <tr><td>SQ</td><td>Any</td><td>Sequence of zero or more items</td></tr>
+    <tr><td>SS</td><td>2</td><td>Signed short integer (Int16)</td></tr>
+    <tr><td>ST</td><td>1024 </td><td>Short Text of chars</td></tr>
+    <tr><td>TM</td><td>16 </td><td>Time hhmmss.fraction (or older format: hh:mm:ss.fraction)</td></tr>
+    <tr><td>UI</td><td>64 </td><td>Unique Identifier (delimiter = .) 0-9 only, add a space to make even length</td></tr>
+    <tr><td>UL</td><td>4</td><td>Unsigned long integer</td></tr>
+    <tr><td>UN</td><td>Any</td><td>Unknown - This is usually an non-parsable DICOM element.</td></tr>
+    <tr><td>US</td><td>2</td><td>Unsigned short integer (UInt16)</td></tr>
+    <tr><td>UT</td><td>Any</td><td>Unlimited Text. trailing spaces ignored</td></tr>
+</table>
+
+<a href="Index" >Back to the search page.</a> Or check your browser tab to get back to your current search.
