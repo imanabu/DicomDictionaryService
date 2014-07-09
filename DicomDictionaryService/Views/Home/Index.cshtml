@@ -2,21 +2,39 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h2>DICOM Dictionary Lookup Service</h2>
-    <p>Enter a Tag or a Part of Dictionary Description</p>
-    <input type="text" id="tag" size="20" />
-    <input type="button" value="Search" onclick="find();" />
+<script>
+
+</script>
+<div class="jumbotron">   
+    <div class="text-center">
+        <h2>DICOM Dictionary Lookup</h2>
+        <p>Go Ahead, Enter a Tag or a Any Part of Dictionary Description</p>
+        <p><input placeholder="00100020 or Patient" type="text" id="tag" size="80"/></p>
+        <input class="btn btn-lg btn-success"  id="find" type="button" value="Search" onclick="find();" />
+    </div>
 </div>
+
 <div class="well" id="result"></div>
 <div class="well">
     <h3>Example Queries:</h3>
-    <p>00100020 -- Great for typing in</p>
-    <p>(0010,0020) -- Great for cutting and pasting from some doc or page.</p>
-    <p>patient id -- description searches are not case sensitive and spaces are ignored too.</p>
-    <p>Note some descriptions may contain an apstrophe (e.g., Patient's name). This lookup ignores the 's</p>
-    <p>
-        See also: There is a pure JavaScript based DICOM Dump.
+    <table class="table">
+        <tr>
+            <td>00100020</td>
+            <td>Simplest way to type in a tag. Just Num Lock your keys and type the tag away.</td>
+        </tr>
+        <tr>
+            <td>(0010,0020)</td>
+            <td>No need to edit out parenthesis or a comma! Just paste the tag in from wherever you copy it from.</td>
+        </tr>
+        <tr>
+            <td>patient id</td>
+            <td>
+                If text is typed in, then I know you mean it's a dictionary definition that you are looking for. Also in DICOM Dictionary, many Patient related decriptions are
+                having 's like Patient's Name. No need to worry about which way it is -- with an ' or without. The descriptions are taken directly from the Part 6 of the standard!
+            </td>
+        </tr>
+    </table>
+    <p>See also: There is a pure JavaScript based DICOM Dump.
         <a href="https://rawgit.com/chafey/dicomParser/master/examples/dumpWithDataDictionary/index.html">Click Here</a> then drag and drop your DICOM File Object!
     </p>
 </div>

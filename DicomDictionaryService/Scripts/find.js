@@ -1,17 +1,18 @@
 ﻿var uri = '/lookup/';
 
+
 function formatItem(data) {
-    var tbl = '<table class="table table-striped">';
+    var tbl = '<table class="table table-striped  table-condensed">';
     tbl = tbl + "<thead>";
     tbl = tbl + "<tr>";
     tbl = tbl + "<td>";
     tbl = tbl + "Tag";
     tbl = tbl + "</td>";
     tbl = tbl + "<td>";
-    tbl = tbl + "VM";
+    tbl = tbl + "<abbr title='Value Multiplicity'>VM</abbr>";
     tbl = tbl + "</td>";
     tbl = tbl + "<td>";
-    tbl = tbl + "<a href='/Home/Vr'>VR</a>";
+    tbl = tbl + "<abbr title='Value Reprsentation, Click the code for more details.'>VR</abbr>";
     tbl = tbl + "</td>";
     tbl = tbl + "<td>";
     tbl = tbl + "Official Description";
@@ -53,3 +54,10 @@ function find() {
             $('#result').text('Error: ' + err);
         });
 }
+
+$(document).ready(function () {
+    $('#tag').keypress(function (e) {
+        if (e.keyCode == 13)
+            find();
+    });
+});
