@@ -23,6 +23,10 @@
             <td>Simplest way to type in a tag. Just Num Lock your keys and type the tag away.</td>
         </tr>
         <tr>
+            <td>0028</td>
+            <td>Specify just the first 4 digits of a tag and list the entier DICOM "group". </td>
+        </tr>
+        <tr>
             <td>(0010,0020)</td>
             <td>No need to edit out parenthesis or a comma! Just paste the tag in from wherever you copy it from.</td>
         </tr>
@@ -33,13 +37,20 @@
                 having 's like Patient's Name. No need to worry about which way it is -- with an ' or without. The descriptions are taken directly from the Part 6 of the standard!
             </td>
         </tr>
+        <tr>
+            <td>everything</td>
+            <td>
+                Dump all the entires this program has. Hint: It is a great way to copy the Dictionary into a JSON format if you use the RESTful interface. See below!
+            </td>
+        </tr>
+
     </table>
-    <p>See also: There is a pure JavaScript based DICOM Dump.
+    <p>See also: There is a pure JavaScript HTML5 based DICOM Dump.
         <a href="https://rawgit.com/chafey/dicomParser/master/examples/dumpWithDataDictionary/index.html">Click Here</a> then drag and drop your DICOM File Object!
     </p>
 </div>
 <div class="well">
-    <h3>Your JavaScript app can access this lookup service's back end with the following URL.</h3>
+    <h3>Your JavaScript app can access this lookup service's RESTful back end with the following URL.</h3>
     <p>Examples:</p>
     <p>http://dicomdictionaryservice.azurewebsite.net/lookup/00100010</p>
     <p>http://dicomdictionaryservice.azurewebsite.net/lookup/PatientName</p>

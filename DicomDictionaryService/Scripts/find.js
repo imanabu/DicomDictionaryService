@@ -15,7 +15,7 @@ function formatItem(data) {
     tbl = tbl + "<abbr title='Value Reprsentation, Click the code for more details.'>VR</abbr>";
     tbl = tbl + "</td>";
     tbl = tbl + "<td>";
-    tbl = tbl + "Official Description";
+    tbl = tbl + "Dictionary Description";
     tbl = tbl + "</td>";
     tbl = tbl + "</tr>";
     tbl = tbl + "</thead>";
@@ -32,7 +32,16 @@ function formatItem(data) {
         tbl = tbl + "</td>";
 
         tbl = tbl + "<td>";
-        tbl = tbl + "<a href='/Home/Vr' target='_blank'>" + obj.vr + "</a>";
+        var vr = obj.vr;
+        if (vr == 'AT' || vr == 'FL' || vr == 'FD' || vr == "SL" || vr == "SS" ||
+            vr == 'UL' || vr == 'US' || vr == 'OB' || vr == 'OF'  || vr == 'OW') {
+            tbl = tbl + "<a href='/Home/Vr' class='btn btn-danger btn-sm active' target='_blank'>" + obj.vr + "</a>";
+        }
+        else if (vr == 'SQ') {
+            tbl = tbl + "<a href='/Home/Vr' class='btn btn-warning btn-sm active' target='_blank'>" + obj.vr + "</a>";
+        } else {
+            tbl = tbl + "<a href='/Home/Vr' class='btn btn-primary btn-sm active' target='_blank'>" + obj.vr + "</a>";
+        }
         tbl = tbl + "</td>";
         tbl = tbl + "<td>";
         tbl = tbl + obj.description;

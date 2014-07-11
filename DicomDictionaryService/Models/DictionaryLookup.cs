@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Dicom;
+using Microsoft.Ajax.Utilities;
 
 namespace DicomDictionaryService.Models
 {
@@ -19,9 +20,13 @@ namespace DicomDictionaryService.Models
             term = term.Replace("’s", "");
             term = term.Replace("patients", "patient");
 
-            var tagFormat1 = new Regex("^[0-9A-Fa-f]{8}$");
+            var tagFormatFull= new Regex("^[0-9a-f]{8}$");
+            var tagFormatGroup = new Regex("^[0-9a-f]{4}$");
 
-            Mode mode = tagFormat1.Match(term).Success ? Mode.tag : Mode.desc;
+            var mode = Mode.desc;
+            if (tagFormatFull.Match(term).Success) mode =Mode.tag;
+            else if (tagFormatGroup.Match(term).Success) mode = Mode.group;
+            else if (term == "everything") mode = Mode.all;
 
             while (de.MoveNext())
             {
@@ -35,6 +40,10 @@ namespace DicomDictionaryService.Models
                         comp = ent.Tag.ToString("J", null);
                         break;
 
+                    case Mode.group:
+                        comp = ent.Tag.ToString("J", null).Substring(0,4);
+                        break;
+
                     case Mode.desc:
                         comp = ent.Name.ToLower();
                         comp = comp.Replace("'s", "");
@@ -43,7 +52,9 @@ namespace DicomDictionaryService.Models
                         break;
                 }
 
-                if (comp.Contains(term))
+                comp = comp.ToLower();
+
+                if (comp.Contains(term) || mode == Mode.all)
                 {
                     var vm1 = "1";
 
@@ -68,7 +79,9 @@ namespace DicomDictionaryService.Models
         private enum Mode
         {
             tag,
-            desc
+            desc,
+            group,
+            all
         };
     }
 }
