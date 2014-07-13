@@ -3,54 +3,61 @@
 
 function formatItem(data) {
     var tbl = '<table class="table table-striped  table-condensed">';
-    tbl = tbl + "<thead>";
-    tbl = tbl + "<tr>";
-    tbl = tbl + "<td>";
-    tbl = tbl + "Tag";
-    tbl = tbl + "</td>";
-    tbl = tbl + "<td>";
-    tbl = tbl + "<abbr title='Value Multiplicity'>VM</abbr>";
-    tbl = tbl + "</td>";
-    tbl = tbl + "<td>";
-    tbl = tbl + "<abbr title='Value Reprsentation, Click the code for more details.'>VR</abbr>";
-    tbl = tbl + "</td>";
-    tbl = tbl + "<td>";
-    tbl = tbl + "Dictionary Description";
-    tbl = tbl + "</td>";
-    tbl = tbl + "</tr>";
-    tbl = tbl + "</thead>";
+    tbl += "<thead>";
+    tbl += "<tr>";
+    tbl += "<td>";
+    tbl += "Tag";
+    tbl += "</td>";
+    tbl += "<td>";
+    tbl += "<abbr title='Value Multiplicity'>VM</abbr>";
+    tbl += "</td>";
+    tbl += "<td>";
+    tbl += "<abbr title='Value Reprsentation, Click the code for more details.'>VR</abbr>";
+    tbl += "</td>";
+    tbl += "<td>";
+    tbl += "Dictionary Description";
+    tbl += "</td>";
+    tbl += "</tr>";
+    tbl += "</thead>";
 
     $.each(data, function (i, obj) {
-        tbl = tbl + "<tr>";
+        tbl += "<tr>";
 
-        tbl = tbl + "<td>";
-        tbl = tbl + obj.tag;
-        tbl = tbl + "</td>";
+        tbl += "<td>";
+        tbl += obj.tag;
+        tbl += "</td>";
 
-        tbl = tbl + "<td>";
-        tbl = tbl + obj.vm;
-        tbl = tbl + "</td>";
+        tbl += "<td>";
+        tbl += obj.vm;
+        tbl += "</td>";
 
-        tbl = tbl + "<td>";
+        tbl += "<td>";
         var vr = obj.vr;
         if (vr == 'AT' || vr == 'FL' || vr == 'FD' || vr == "SL" || vr == "SS" ||
             vr == 'UL' || vr == 'US' || vr == 'OB' || vr == 'OF'  || vr == 'OW') {
-            tbl = tbl + "<a href='/Home/Vr' class='btn btn-danger btn-sm active' target='_blank'>" + obj.vr + "</a>";
+            tbl += vrButtonAdd("btn-danger", vr);
         }
         else if (vr == 'SQ') {
-            tbl = tbl + "<a href='/Home/Vr' class='btn btn-warning btn-sm active' target='_blank'>" + obj.vr + "</a>";
+            tbl += vrButtonAdd("btn-warning", vr);
         } else {
-            tbl = tbl + "<a href='/Home/Vr' class='btn btn-primary btn-sm active' target='_blank'>" + obj.vr + "</a>";
+            tbl += vrButtonAdd("btn-success", vr);
         }
-        tbl = tbl + "</td>";
-        tbl = tbl + "<td>";
-        tbl = tbl + obj.description;
-        tbl = tbl + "</td>";
-        tbl = tbl + "</tr>";
+        tbl += "</td>";
+        tbl += "<td>";
+        tbl += obj.description;
+        tbl += "</td>";
+        tbl += "</tr>";
     });
-    tbl = tbl + "</table>";
+    tbl += "</table>";
 
     return tbl;
+}
+
+function vrButtonAdd(btnType, btnLabel) {
+    var t = '<button class="btn %bt% btn-sm" data-toggle="modal" data-target="#vrModal">%lbl%</button>';
+    t = t.replace('%bt%', btnType);
+    t = t.replace('%lbl%', btnLabel);
+    return t;
 }
 
 function find() {

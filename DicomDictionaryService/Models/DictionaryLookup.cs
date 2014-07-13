@@ -60,6 +60,14 @@ namespace DicomDictionaryService.Models
 
                     if (ent.ValueMultiplicity.Maximum == int.MaxValue)
                         vm1 = String.Format("{0} or more", ent.ValueMultiplicity.Minimum);
+                    else if (ent.ValueMultiplicity.Maximum == 1)
+                    {
+                        vm1 = String.Format("{0}", ent.ValueMultiplicity.Maximum);
+                    }
+                    else if (ent.ValueMultiplicity.Maximum == ent.ValueMultiplicity.Minimum)
+                    {
+                        vm1 = String.Format("{0} exatly", ent.ValueMultiplicity.Minimum);
+                    }
                     else if (ent.ValueMultiplicity.Maximum > 1)
                         vm1 = String.Format("{0}-{1}", ent.ValueMultiplicity.Minimum, ent.ValueMultiplicity.Maximum);
 
