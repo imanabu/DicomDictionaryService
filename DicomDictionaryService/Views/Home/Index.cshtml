@@ -24,7 +24,7 @@
                     <tr><td>CS</td><td>16 </td><td>Code String</td></tr>
                     <tr><td>DA</td><td>8</td><td>Date yyyymmdd (check for yyyy.mm.dd also and convert)</td></tr>
                     <tr><td>DS</td><td>16 </td><td>Decimal <strong>String</strong>.Can start with + or - and may be padded with l or t space</td></tr>
-                    <tr><td>DT</td><td>26 </td><td>Date Time YYYYMMDDHHMMSS.FFFFFF&ZZZZ (&ZZZ is optional & = + or -)</td></tr>
+                    <tr><td>DT</td><td>26 </td><td>Date Time YYYYMMDDHHMMSS.FFFFFF&amp;ZZZZ (&amp;ZZZ is optional & = + or -)</td></tr>
                     <tr><td>FL</td><td>4</td><td>Single precision floating point binary number (float)</td></tr>
                     <tr><td>FD</td><td>16 </td><td>Double precision floating point binary number (double)</td></tr>
                     <tr><td>IS</td><td>12 </td><td>Integer encoded <strong>String</strong>. It may be padded</td></tr>
@@ -62,7 +62,22 @@
         <input class="btn btn-lg btn-success"  id="find" type="button" value="Search" onclick="find();" />
     </div>
 </div>
+<div class="well">
 
+    <div id="dropZone">
+        <div class="text-center">
+            <h2>Or, Use HTML-5 DICOM File Dump</h2>
+            <h3>Yes! Go Ahead, Drag &amp; Drop Your Part-10 File Here</h3>
+            Your file is dumped using pure local JavaScript. Nothing is uploaded to the server!
+        </div>
+        <div id="status" class="alert alert-success">
+            <div id="statusText">
+                Status: Ready (no file loaded)
+            </div>
+            <ul id="warnings"></ul>
+        </div>
+    </div>
+</div>
 <div class="well" id="result"></div>
 <div class="well">
     <h3>Example Queries:</h3>
@@ -104,6 +119,10 @@
     <p>http://dicomdictionaryservice.azurewebsite.net/lookup/00100010</p>
     <p>http://dicomdictionaryservice.azurewebsite.net/lookup/PatientName</p>
 </div>
-<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
-<script src="/Scripts/find.js"></script>
 
+<script src="~/Scripts/jquery-2.1.1.min.js"></script>
+<script src="~/Scripts/dicomParser.js"></script>
+<script src="~/Scripts/dataDictionary.js"></script>
+<script src="~/Scripts/dicomDump.js"></script>
+
+<script src="~/Scripts/find.js"></script>

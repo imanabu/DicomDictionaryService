@@ -1,5 +1,4 @@
-﻿var uri = '/lookup/';
-
+﻿var dicomFinduri = '/lookup/';
 
 function formatItem(data) {
     var tbl = '<table class="table table-striped  table-condensed">';
@@ -62,7 +61,7 @@ function vrButtonAdd(btnType, btnLabel) {
 
 function find() {
     var id = $('#tag').val();
-    $.getJSON(uri + id)
+    $.getJSON(dicomFinduri + id)
         .done(function (data) {
             $('#result').html(formatItem(data));
         })
@@ -71,9 +70,9 @@ function find() {
         });
 }
 
-$(document).ready(function () {
-    $('#tag').keypress(function (e) {
-        if (e.keyCode == 13)
-            find();
-    });
-});
+//$(document).ready(function () {
+//    $('#tag').keypress(function (e) {
+//        if (e.keyCode == 13)
+//            find();
+//    });
+//});

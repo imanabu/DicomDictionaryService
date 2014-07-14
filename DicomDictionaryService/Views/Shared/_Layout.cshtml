@@ -20,13 +20,21 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>Version 0.1 &copy; 10 July 2014 - Lury.NET & Manabu Tokunaga. Dictionary lookup based on the <a href="https://github.com/rcd/fo-dicom">fo-dicom project.</a></p>
-            <p><a href="https://github.com/imanabu/DicomDictionaryService">Please Report a Bug or Fork and Enhance This on GitHub.  It's all open. MIT Licensed.</a></p>
+            <p>Version 0.1 &copy; 10 July 2014 - Lury.NET & Manabu Tokunaga.  Dictionary lookup based on the <a href="https://github.com/rcd/fo-dicom">fo-dicom project.</a></p>
+            <p><a href="https://github.com/imanabu/DicomDictionaryService">Please Report a Bug or Fork and Enhance This on GitHub.</a></p>
+            <p>This product is provided under the terms of the MIT License. </p>
+            <p style="font-size: 8pt">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE</p>
         </footer>
     </div>
-
+   
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @*@RenderSection("scripts", required: false)*@
+    @RenderSection("scripts", required: false)
 </body>
 </html>
